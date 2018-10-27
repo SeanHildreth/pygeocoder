@@ -111,7 +111,8 @@ class GeocoderResult(collections.Iterator):
         """
         Returns true if queried address is valid street address
         """
-        return self.current_data['types'] == [u'street_address']
+        return self.current_data['types'] == [u'street_address'] or self.current_data['types'] == [u'premise']
+# Through doing a fair amount of research, I have found that adding 'premise' gets more accurate responses when dealing with addresses.
 
     @property
     def formatted_address(self):
